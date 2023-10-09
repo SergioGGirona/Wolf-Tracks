@@ -5,6 +5,9 @@ import { MemoryRouter } from 'react-router-dom';
 import { appStore } from '../../components/store/store.ts';
 import HomePage from './home.page.tsx';
 
+jest.mock('../../config.ts', () => ({
+  localUrl: '',
+}));
 describe('Given the component Home', () => {
   describe('When we render it', () => {
     render(

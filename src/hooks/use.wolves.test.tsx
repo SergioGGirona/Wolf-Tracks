@@ -6,6 +6,10 @@ import { appStore } from '../components/store/store';
 import { Wolf } from '../model/wolf';
 import { useWolves } from './use.wolves';
 
+jest.mock('../config.ts', () => ({
+  localUrl: '',
+}));
+
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: jest.fn().mockReturnValue(jest.fn()),

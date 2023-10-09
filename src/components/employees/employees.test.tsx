@@ -8,7 +8,9 @@ import { Employees } from './employees';
 
 jest.mock('../employee/employee');
 jest.mock('../../hooks/use.users');
-
+jest.mock('../../config.ts', () => ({
+  localUrl: '',
+}));
 describe('Given the component Employees', () => {
   const mockEmployees = jest.fn().mockImplementation(() => {});
   describe('When we render it', () => {

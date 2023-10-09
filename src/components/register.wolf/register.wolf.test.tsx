@@ -7,7 +7,9 @@ import { appStore } from '../store/store';
 import RegisterWolf from './register.wolf';
 
 jest.mock('../../hooks/use.wolves');
-
+jest.mock('../../config.ts', () => ({
+  localUrl: '',
+}));
 describe('Given the component Form', () => {
   describe('When we render it', () => {
     beforeEach(() => {

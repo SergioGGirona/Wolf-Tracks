@@ -7,7 +7,9 @@ import { appStore } from '../store/store';
 import Login from './login';
 
 jest.mock('../../hooks/use.users');
-
+jest.mock('../../config.ts', () => ({
+  localUrl: '',
+}));
 describe('Given the component Login', () => {
   describe('When we render it with a provider', () => {
     (useUsers as jest.Mock).mockReturnValue({ loginUser: jest.fn() });

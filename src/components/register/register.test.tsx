@@ -8,7 +8,9 @@ import { useUsers } from '../../hooks/use.users';
 import { appStore } from '../store/store';
 
 jest.mock('../../hooks/use.users');
-
+jest.mock('../../config.ts', () => ({
+  localUrl: '',
+}));
 describe('Given the component Register', () => {
   describe('When we render it', () => {
     beforeEach(() => {

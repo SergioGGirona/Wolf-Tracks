@@ -8,6 +8,10 @@ import { Header } from './header';
 
 jest.mock('../../hooks/use.users');
 
+jest.mock('../../config.ts', () => ({
+  localUrl: '',
+}));
+
 describe('Given the component Header', () => {
   describe('When we render it and there are token', () => {
     (useUsers as jest.Mock).mockReturnValue({

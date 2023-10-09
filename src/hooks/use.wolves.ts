@@ -2,6 +2,7 @@ import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { WolvesRepository } from '../components/repository/wolves.repository';
 import { AppDispatch, RootState } from '../components/store/store';
+import { localUrl } from '../config';
 import { Wolf, WolfToPublic } from '../model/wolf';
 import { actions } from '../redux/wolves.slice';
 import {
@@ -12,10 +13,10 @@ import {
   updateThunk,
 } from '../redux/wolves.thunks';
 
-export const urlBase = 'http://localhost:7373/wolves';
+export const urlBaseUsers = localUrl + '/wolves';
 
 export function useWolves() {
-  const repository = useMemo(() => new WolvesRepository(urlBase), []);
+  const repository = useMemo(() => new WolvesRepository(urlBaseUsers), []);
 
   const userState = useSelector((state: RootState) => state.usersState);
   const token = userState.token;

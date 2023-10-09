@@ -2,10 +2,11 @@ import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { UsersRepository } from '../components/repository/users.repository';
 import { AppDispatch, RootState } from '../components/store/store';
+import { localUrl } from '../config';
 import { UserLogin } from '../model/user';
 import { addThunk, loadThunk, loginThunk } from '../redux/users.thunks';
 
-export const urlBaseUsers = 'http://localhost:7373/users';
+export const urlBaseUsers = localUrl + '/users';
 
 export function useUsers() {
   const repository = useMemo(() => new UsersRepository(urlBaseUsers), []);

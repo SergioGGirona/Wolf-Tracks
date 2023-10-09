@@ -9,7 +9,9 @@ import { Wolves } from './wolves';
 
 jest.mock('../wolf/wolf');
 jest.mock('../../hooks/use.wolves');
-
+jest.mock('../../config.ts', () => ({
+  localUrl: '',
+}));
 describe('Given the component Wolves', () => {
   const mockloadPartialWolves = jest.fn().mockImplementation(() => {});
   describe('When we render it', () => {
