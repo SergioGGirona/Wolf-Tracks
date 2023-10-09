@@ -1,0 +1,64 @@
+.wolfy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  div {
+    visibility: visible;
+    position: absolute;
+    bottom: 2rem;
+    right: 10px;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+    background-color: hsla(0, 0%, 0%, 0.6);
+  }
+
+  div :first-child {
+    font-size: 1.5rem;
+  }
+
+  img {
+    height: 7rem;
+    width: 80vw;
+    object-fit: cover;
+  }
+  div img:hover {
+    visibility: visible;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .wolfy {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    img {
+      width: 200px;
+      height: 200px;
+    }
+
+    div {
+      visibility: hidden;
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.5rem;
+      padding: 5px 10px;
+      display: flex;
+      flex-direction: column;
+      text-align: end;
+      background-color: hsla(0, 0%, 0%, 0.6);
+      transition: all 0.5s ease-out;
+    }
+    img:hover + div,
+    div:hover + img {
+      visibility: visible;
+      transition: all 0.5s ease-in;
+    }
+  }
+}

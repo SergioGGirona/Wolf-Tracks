@@ -1,0 +1,38 @@
+$primary: #0d312a;
+
+.errorPage {
+  height: 72vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  video {
+    height: 8rem;
+    border-radius: 5px 70px 70px 70px;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  p {
+    text-align: center;
+  }
+  .link {
+    text-decoration: none;
+    color: $primary;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    background-color: white;
+
+    border-radius: 5px;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+  }
+  .link:hover {
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    background-color: $primary;
+  }
+}

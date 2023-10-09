@@ -1,0 +1,107 @@
+$primary: #0d312a;
+$secondary: #daede6;
+
+li {
+  transition: all 1s ease;
+  .wolfPreDetail {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0;
+    border: 1px solid white;
+    border-radius: 8px 8px 8px 8px;
+    transition: all 1s ease;
+    justify-content: space-between;
+
+    .wolfPrePhoto {
+      border-radius: 8px 0 0 8px;
+      height: 7rem;
+      width: 8rem;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 0px 0;
+    }
+    section {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0.5rem 1rem 0.5rem 0;
+      .wolfCodeName {
+        font-size: 2rem;
+      }
+    }
+    svg {
+      font-size: 1.2rem;
+      align-self: flex-end;
+      padding: 0 1rem 1rem 0;
+    }
+  }
+
+  .wolfDetail {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    gap: 1rem 0;
+    transition: all 1s ease;
+    border: 1px solid white;
+    border-radius: 8px 8px 8px 8px;
+
+    .wolfPhoto {
+      border-radius: 8px;
+      height: 7rem;
+      width: auto;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: all 1s ease;
+    }
+    svg {
+      font-size: 1.5rem;
+      align-self: flex-end;
+      padding: 1rem;
+    }
+    section {
+      display: flex;
+      span {
+        font-size: 1.5rem;
+        padding: 0 1rem;
+      }
+    }
+    div {
+      display: flex;
+      span {
+        font-size: 1.2rem;
+        padding: 0 1rem;
+      }
+    }
+    p {
+      padding: 0 1rem;
+    }
+    iframe {
+      width: 100%;
+      height: 40vh;
+      border: none;
+    }
+    .buttonsWolf {
+      display: flex;
+      justify-content: space-evenly;
+      button,
+      .linkUpdate {
+        border: none;
+        text-decoration: none;
+        font-size: 1rem;
+        color: black;
+        padding: 0.5rem 1rem;
+        background-color: $secondary;
+        border-radius: 5px;
+        transition: 0.5s all ease;
+      }
+
+      button:active,
+      .linkUpdate:active {
+        background-color: #acc3bb;
+        translate: (2px 5px);
+        text-shadow: none;
+      }
+    }
+  }
+}

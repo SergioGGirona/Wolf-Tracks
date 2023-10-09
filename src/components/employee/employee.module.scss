@@ -1,0 +1,53 @@
+$primary: #184e43;
+
+.employee {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  width: 8rem;
+  height: 10rem;
+  padding: 1.5rem;
+  box-shadow: -20px 0 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid $primary;
+  border-radius: 5px;
+  transition: 0.5s;
+  background-color: white;
+  margin: 2rem 0;
+
+  img {
+    width: 8rem;
+    height: 5rem;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    p {
+      padding: 0.2rem;
+      font-size: 1.5rem;
+      color: $primary;
+    }
+    span {
+      padding: 0;
+      font-size: 0.8rem;
+      color: black;
+    }
+  }
+  .zone {
+    padding: 1.2rem 0;
+    font-size: 0.6rem;
+    color: black;
+  }
+}
+.employee:hover {
+  transform: translate(-1rem, -1rem) rotate(1deg);
+  box-shadow: 0 30px 100px black;
+}
+.employee:hover ~ .employee {
+  transform: translateX(6rem);
+}
+.employee:not(:first-child) {
+  margin-left: -8rem;
+}

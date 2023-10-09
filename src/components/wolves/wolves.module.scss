@@ -1,0 +1,80 @@
+.wolvesContainer {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 1rem;
+    padding-block-end: 1rem;
+    label {
+      font-size: 1.2rem;
+      font-weight: 100;
+    }
+    div {
+      display: flex;
+      gap: 1rem;
+      span {
+        font-size: 1.5rem;
+        transition: all 0.5s ease;
+        cursor: pointer;
+      }
+      span:hover {
+        text-shadow: 0 0 5px white;
+      }
+      span:active {
+        text-shadow: 0 0 25px white;
+        translate: (2px 5px);
+      }
+    }
+  }
+  h3 {
+    font-size: 2rem;
+    padding: 0 1rem;
+    font-weight: 400;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .buttons {
+    display: none;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+    button {
+      background-color: transparent;
+      border: none;
+      font-size: 3rem;
+      font-family: 'Philosopher', sans-serif;
+      color: white;
+      text-shadow: 0 0 25px white;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    button:active {
+      translate: (2px 5px);
+      text-shadow: none;
+    }
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .wolvesContainer {
+    display: flex;
+    width: 80vw;
+    justify-content: center;
+
+    .wolvesList {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 3rem;
+      justify-content: center;
+    }
+  }
+}

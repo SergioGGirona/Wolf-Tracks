@@ -1,0 +1,33 @@
+.media {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100%;
+  gap: 0 3rem;
+  border-bottom: 1px;
+  background-color: #daede6;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  div {
+    display: flex;
+    animation: scrolling 30s linear infinite;
+  }
+  img {
+    height: 3rem;
+    padding: 0 1rem;
+    flex-shrink: 0;
+    filter: grayscale(0.5);
+  }
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(-50%);
+  }
+  100% {
+    transform: translate(0);
+  }
+}

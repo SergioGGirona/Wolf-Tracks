@@ -1,0 +1,115 @@
+.update {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  .updateForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    padding: 1rem;
+    border-bottom: 1px white solid;
+
+    p {
+      font-size: 1.5rem;
+    }
+    label {
+      font-size: 1.5rem;
+    }
+    input {
+      height: 2rem;
+      border-radius: 0 5px 5px 5px;
+      font-size: 1.5rem;
+    }
+    .aclaration {
+      font-size: 0.8rem;
+      font-style: italic;
+    }
+    .textForm {
+      background-color: #2a4a44;
+      border: none;
+      color: white;
+      display: flex;
+      text-align: center;
+      width: 15rem;
+      font-size: 1.2rem;
+      font-family: 'Philosopher', sans-serif;
+    }
+
+    .numberForm {
+      font-size: 1.2rem;
+      background-color: #2a4a44;
+      border: none;
+      color: white;
+      text-align: center;
+      width: 12rem;
+    }
+    .textForm::placeholder,
+    .numberForm::placeholder {
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 100;
+      font-family: 'Philosopher', sans-serif;
+    }
+    .isAlphaSelector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      legend {
+        font-size: 1.2rem;
+      }
+      span {
+        font-size: 0.8rem;
+      }
+      div {
+        display: flex;
+        padding: 5px 10px;
+        align-items: center;
+        gap: 0.2rem;
+      }
+    }
+
+    .buttonForm,
+    .buttonCoordinates {
+      border: 1px white solid;
+      border-radius: 8px;
+      background-color: #daede6;
+      padding: 0.5rem 2rem;
+      font-family: 'Philosopher', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      transition: all 0.5s;
+    }
+    .buttonCoordinates {
+      font-size: 1rem;
+    }
+    .buttonForm:hover,
+    .buttonCoordinates:hover {
+      background-color: transparent;
+      color: white;
+    }
+    .buttonForm:active,
+    .buttonCoordinates:active {
+      background-color: black;
+      transform: translate(5px, 5px);
+    }
+  }
+  .backButton {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    width: 4rem;
+    text-align: center;
+    align-self: center;
+    margin: 2rem;
+  }
+  .backButton:active {
+    background-color: black;
+    transform: translate(5px, 5px);
+  }
+}

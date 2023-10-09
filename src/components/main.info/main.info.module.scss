@@ -1,0 +1,22 @@
+.mainInfo {
+  display: flex;
+  flex-direction: column;
+  padding-block-start: 2rem;
+  gap: 2rem;
+  background-color: white;
+  color: black;
+  p {
+    font-size: 1.5rem;
+    padding-inline: 2rem;
+
+    strong {
+      display: block;
+    }
+  }
+  img {
+    width: 100vw;
+    height: 30vh;
+    object-fit: cover;
+    margin-block-end: 2rem;
+  }
+}

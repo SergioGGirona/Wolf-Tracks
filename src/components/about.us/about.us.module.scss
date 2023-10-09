@@ -1,0 +1,58 @@
+.aboutUs {
+  display: flex;
+  flex-direction: column;
+  p,
+  span,
+  h3 {
+    font-size: 1.2rem;
+    padding: 1.5rem;
+  }
+
+  h2 {
+    margin: 0;
+    padding: 0 1.5rem;
+  }
+  h3 {
+    margin: 0;
+    padding: 0 1.5rem;
+  }
+  .rightP {
+    text-align: end;
+  }
+  strong {
+    text-decoration: none;
+    font-weight: 400;
+    transition: all 1s ease;
+  }
+  strong:hover {
+    font-size: 1.1em;
+    background-color: #184e43;
+    padding: 0.2em;
+  }
+  a {
+    border-radius: 25px;
+    font-size: 1.2rem;
+    align-self: center;
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    transition: all 1s ease-in-out;
+    margin-block-end: 2rem;
+  }
+  a:hover {
+    font-size: 1.3em;
+    padding: 0.2em;
+    text-shadow: #fdf7df 1px 0 10px;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .aboutUs {
+    display: flex;
+    .imgWolves {
+      width: 100vw;
+      height: 20vh;
+      object-fit: cover;
+    }
+  }
+}

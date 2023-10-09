@@ -1,0 +1,40 @@
+$primary: #0d312a;
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  video {
+    height: 85vh;
+    width: 100vw;
+    object-fit: cover;
+    filter: brightness(0.7) contrast(150%) saturate(150%);
+  }
+  div {
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    h2 {
+      background: radial-gradient(
+        circle,
+        rgba(13, 49, 42, 0.5424763655462185) 0%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      text-shadow: 0 0 10px black;
+      text-align: center;
+      font-size: 2.2rem;
+      padding: 0.2rem;
+      border-top: white 2px solid;
+      border-bottom: white 2px solid;
+      font-weight: 400;
+      em {
+        font-style: normal;
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+$secondary: #daede6;
+.profile {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    width: 15rem;
+  }
+  hr {
+    align-self: flex-start;
+    border: 1px solid transparent;
+    margin: 0;
+    width: 60vw;
+    border-image: linear-gradient(to right, white, transparent);
+    border-image-slice: 1;
+
+    margin-bottom: 1em;
+  }
+
+  .addWolfButton {
+    text-decoration: none;
+    width: 8rem;
+    font-size: 1.2rem;
+    color: black;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    background-color: $secondary;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+  }
+  .addWolfButton:active {
+    background-color: #acc3bb;
+    translate: (2px 5px);
+    text-shadow: none;
+  }
+  p {
+    padding: 1rem 0;
+  }
+}
