@@ -2,7 +2,13 @@
 
 Proyecto personal de programación del curso de ISDI Coders.
 Autor: Sergio G. Girona
+Enlace al Deploy: https://wolf-tracks-front.vercel.app/
 Objetivo: Realiza una web single page aplication fullstack MERN y mobile first para demostrar en la práctica los conocimientos aprendidos a lo largo del bootcamp.
+
+## Importante:
+
+- El elemento de Login no debería estar disponible y a la vista de todos, pero por motivos de Deploy y para que cualquiera pueda probar la página, lo he dejado en el menú y a la vista.
+- Puedes registrarte, pero en tu perfil solo aparecen los lobos a los que tú como "empleado" estarías haciendo seguimiento (los únicos que podrías editar), por lo que si estás probando la web, te recomendaría que entraras con el usuario y la contraseña "Luffy" o el usuario y contraseña Nami, para que pruebes distintos perfiles.
 
 ### La idea:
 

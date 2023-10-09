@@ -11,7 +11,9 @@ import { appStore } from '../store/store';
 
 jest.mock('../../hooks/use.wolves');
 jest.mock('sweetalert2');
-
+jest.mock('../../config.ts', () => ({
+  localUrl: '',
+}));
 describe('Given the component WolfDetail', () => {
   describe('When we render it with male and alfa', () => {
     Swal.fire = jest.fn().mockResolvedValue({ isConfirmed: true });

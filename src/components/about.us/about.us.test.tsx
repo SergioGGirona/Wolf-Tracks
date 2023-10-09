@@ -5,6 +5,9 @@ import { MemoryRouter } from 'react-router-dom';
 import { appStore } from '../store/store';
 import { AboutUs } from './about.us';
 
+jest.mock('../../config.ts', () => ({
+  localUrl: '',
+}));
 describe('Given the component Footer', () => {
   describe('When we render it', () => {
     render(

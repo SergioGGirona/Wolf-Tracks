@@ -4,7 +4,9 @@ import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import { appStore } from '../../components/store/store';
 import AboutUsPage from './about.us.page';
-
+jest.mock('../../config.ts', () => ({
+  localUrl: '',
+}));
 describe('Given the component Home', () => {
   describe('When we render it', () => {
     render(

@@ -11,7 +11,9 @@ import Profile from './profile';
 
 jest.mock('../../hooks/use.users');
 jest.mock('../../hooks/use.wolves');
-
+jest.mock('../../config.ts', () => ({
+  localUrl: '',
+}));
 const wolfMocked = {
   id: '01',
   nickname: 'Chopper',

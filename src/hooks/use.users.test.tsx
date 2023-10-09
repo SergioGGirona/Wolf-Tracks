@@ -6,6 +6,10 @@ import { appStore } from '../components/store/store';
 import { UserLogin } from '../model/user';
 import { useUsers } from './use.users';
 
+jest.mock('../config.ts', () => ({
+  localUrl: '',
+}));
+
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: jest.fn().mockReturnValue(jest.fn()),
