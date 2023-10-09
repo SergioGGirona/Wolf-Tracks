@@ -47,7 +47,7 @@ describe('Given the component Header', () => {
       const menu = screen.getByRole('list', { hidden: true });
       const button1 = screen.getByText(/Home/);
       const button2 = screen.getByText(/Conócenos/);
-      const button3 = screen.getByText(/Territorios/);
+      const button3 = screen.getByText(/Oyes el aullido/);
       const button4 = screen.getByText(/Tu perfil/);
       const button5 = screen.getByText(/Logout/);
 
@@ -109,6 +109,25 @@ describe('Given the component Header', () => {
     test('Then, the component should be in the document', () => {
       const logo = screen.getByAltText(/logotipo/);
       expect(logo).toBeInTheDocument();
+    });
+
+    test('Then if user clicks on the buttons, state changes again', () => {
+      const menuButton = screen.getByRole('button');
+      const menu = screen.getByRole('list', { hidden: true });
+      const buttonLogin = screen.getByText(/Login/);
+
+      expect(menu).toHaveStyle({ right: '0%', top: '-500%', opacity: 0 });
+
+      fireEvent.click(menuButton);
+
+      expect(menu).toHaveStyle({ right: '0%', top: '100%', opacity: 1 });
+
+      fireEvent.click(buttonLogin);
+      expect(menu).toHaveStyle({
+        right: '0%',
+        top: '-500%',
+        opacity: 0,
+      });
     });
   });
 });

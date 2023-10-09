@@ -10,13 +10,13 @@ function Profile() {
   const { loadState, loadWolves, wolves } = useWolves();
   const { users } = useUsers();
 
-  const userWolves = wolves.filter(
-    (wolf) => wolf.specialist.id === users[0].id
-  ) as Wolf[];
-
   useEffect(() => {
     loadWolves();
   }, [loadWolves]);
+
+  const userWolves = wolves.filter(
+    (wolf) => wolf.specialist && wolf.specialist.id === users[0].id
+  ) as Wolf[];
 
   return (
     <main className={styles.profile}>

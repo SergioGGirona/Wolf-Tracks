@@ -76,7 +76,7 @@ export function Header() {
                     setIsMenuOpen(!isMenuOpen);
                   }}
                 >
-                  Territorios
+                  ¿Oyes el aullido?
                 </Link>
               </li>
               {token ? (
@@ -107,7 +107,18 @@ export function Header() {
                   </li>
                 </>
               ) : (
-                <AiOutlineLogin id="logout" className={styles.hidden} />
+                <li className={styles.loginOut}>
+                  <Link
+                    className={styles['link']}
+                    to={'/login'}
+                    onClick={() => {
+                      setIsMenuOpen(!isMenuOpen);
+                    }}
+                  >
+                    Login
+                  </Link>
+                  <AiOutlineLogin id="login" />
+                </li>
               )}
             </ul>
           </div>
