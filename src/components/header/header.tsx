@@ -71,7 +71,7 @@ export function Header() {
               <li>
                 <Link
                   className={styles['link']}
-                  to={'/'}
+                  to={'/suscribe'}
                   onClick={() => {
                     setIsMenuOpen(!isMenuOpen);
                   }}

@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { UsersRepository } from '../components/repository/users.repository';
 import { User, UserLogin } from '../model/user';
 import { Payload } from '../types/payload';
+import { Suscriptor } from '../types/suscriptor';
 
 export const addThunk = createAsyncThunk<
   User,
@@ -27,3 +28,11 @@ export const loadThunk = createAsyncThunk<User[], UsersRepository>(
     return users;
   }
 );
+
+export const suscribeThunk = createAsyncThunk<
+  Suscriptor,
+  { repository: UsersRepository; visitor: Suscriptor }
+>('users/suscribe', async ({ repository, visitor }) => {
+  const suscriptor = await repository.suscribe(visitor);
+  return suscriptor;
+});

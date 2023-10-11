@@ -1,5 +1,6 @@
 import { User, UserLogin } from '../../model/user';
 import { Payload } from '../../types/payload';
+import { Suscriptor } from '../../types/suscriptor';
 import { Repository } from './repository';
 
 export class UsersRepository implements Repository<User> {
@@ -38,6 +39,22 @@ export class UsersRepository implements Repository<User> {
     if (!request.ok)
       throw new Error(
         `Error ${request.status}: ${request.statusText}. Try again.`
+      );
+    const data = await request.json();
+    return data;
+  }
+
+  async suscribe(item: Suscriptor): Promise<Suscriptor> {
+    const request = await fetch(`${this.urlBase}/suscribe`, {
+      method: 'POST',
+      body: JSON.stringify(item),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    if (!request.ok)
+      throw new Error(
+        `Error ${request.status}: ${request.statusText}. Sorry, try again.`
       );
     const data = await request.json();
     return data;

@@ -4,7 +4,13 @@ import { UsersRepository } from '../components/repository/users.repository';
 import { AppDispatch, RootState } from '../components/store/store';
 import { localUrl } from '../config';
 import { UserLogin } from '../model/user';
-import { addThunk, loadThunk, loginThunk } from '../redux/users.thunks';
+import {
+  addThunk,
+  loadThunk,
+  loginThunk,
+  suscribeThunk,
+} from '../redux/users.thunks';
+import { Suscriptor } from '../types/suscriptor';
 
 export const urlBaseUsers = localUrl + '/users';
 
@@ -26,6 +32,10 @@ export function useUsers() {
     usersDispatch(loadThunk(repository));
   }, [repository, usersDispatch]);
 
+  const suscribeVisitor = async (visitor: Suscriptor) => {
+    usersDispatch(suscribeThunk({ repository, visitor }));
+  };
+
   return {
     users: usersState.users,
     error: usersState.hasError,
@@ -35,5 +45,6 @@ export function useUsers() {
     addUser,
     loginUser,
     loadEmployees,
+    suscribeVisitor,
   };
 }

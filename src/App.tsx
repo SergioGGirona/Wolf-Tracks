@@ -12,6 +12,7 @@ function App() {
     { path: '/addWolf', label: 'RegisterWolf' },
     { path: '/profile', label: 'Profile' },
     { path: '/update', label: 'Update' },
+    { path: '/suscribe', label: 'Contact' },
     { path: '/*', label: 'ErrorPage' },
   ];
   return (

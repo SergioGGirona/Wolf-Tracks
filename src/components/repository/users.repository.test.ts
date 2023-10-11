@@ -48,6 +48,7 @@ describe('Given the class ApiUserRepository', () => {
 
       expect(errorRepo.getAll()).rejects.toThrow();
     });
+
     test('Then, it should throw error in create method', () => {
       global.fetch = jest.fn().mockResolvedValueOnce({
         ok: false,

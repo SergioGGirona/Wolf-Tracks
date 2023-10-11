@@ -13,7 +13,7 @@ const RegisterWolf = lazy(() => import('../register.wolf/register.wolf'));
 
 const Profile = lazy(() => import('../profile/profile'));
 const Update = lazy(() => import('../update.form/update.form'));
-
+const Contact = lazy(() => import('../contact.form/contact.form'));
 const ErrorPage = lazy(() => import('../error.page/error.page'));
 
 type Props = {
@@ -33,7 +33,8 @@ export function AppRouter({ options }: Props) {
         <Route path={paths[4]} element={<RegisterWolf></RegisterWolf>}></Route>
         <Route path={paths[5]} element={<Profile></Profile>}></Route>
         <Route path="/update/:id" element={<Update></Update>}></Route>
-        <Route path={paths[7]} element={<ErrorPage></ErrorPage>}></Route>
+        <Route path={paths[7]} element={<Contact></Contact>}></Route>
+        <Route path={paths[8]} element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
     </Suspense>
   );
