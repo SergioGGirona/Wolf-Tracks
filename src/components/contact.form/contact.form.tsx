@@ -22,7 +22,7 @@ function Contact() {
       title: 'Te hemos añadido a nuestra manada',
       text: 'En nada recibirás un correo con toda la información. Por si acaso, revisa tu spam',
       imageUrl:
-        'http://res.cloudinary.com/dn5pxi50z/image/upload/v1696935314/favicon_pmfgdy.png',
+        'https://res.cloudinary.com/dn5pxi50z/image/upload/v1696935314/favicon_pmfgdy.png',
       imageWidth: 200,
       imageHeight: 200,
       imageAlt: 'Ilustración de lobo aullando',
