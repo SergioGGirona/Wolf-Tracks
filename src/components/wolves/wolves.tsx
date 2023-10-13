@@ -21,7 +21,7 @@ export function Wolves() {
       <h3>Conoce a nuestros lobos</h3>
 
       <div className={styles.filters}>
-        <label>Elije un territorio para filtrar</label>
+        <label>Elije un territorio para filtrar:</label>
         <div>
           <span onClick={handleFilter} role="button">
             Asturias
