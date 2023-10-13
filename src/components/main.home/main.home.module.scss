@@ -11,6 +11,9 @@ $primary: #0d312a;
     object-fit: cover;
     filter: brightness(0.7) contrast(150%) saturate(150%);
   }
+  img {
+    display: none;
+  }
   div {
     position: absolute;
     top: 4rem;
@@ -35,6 +38,18 @@ $primary: #0d312a;
         font-style: normal;
         display: block;
       }
+    }
+  }
+}
+
+@media (min-width: 50rem) {
+  .main {
+    video {
+      display: none;
+    }
+    img {
+      display: flex;
+      height: 80vh;
     }
   }
 }
