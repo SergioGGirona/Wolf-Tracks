@@ -44,7 +44,7 @@ export class UsersRepository implements Repository<User> {
     return data;
   }
 
-  async suscribe(item: Suscriptor): Promise<Suscriptor> {
+  async suscribe(item: Suscriptor): Promise<void> {
     const request = await fetch(`${this.urlBase}/suscribe`, {
       method: 'POST',
       body: JSON.stringify(item),
@@ -56,7 +56,5 @@ export class UsersRepository implements Repository<User> {
       throw new Error(
         `Error ${request.status}: ${request.statusText}. Sorry, try again.`
       );
-    const data = await request.json();
-    return data;
   }
 }

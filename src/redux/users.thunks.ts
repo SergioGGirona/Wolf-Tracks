@@ -30,7 +30,7 @@ export const loadThunk = createAsyncThunk<User[], UsersRepository>(
 );
 
 export const suscribeThunk = createAsyncThunk<
-  Suscriptor,
+  void,
   { repository: UsersRepository; visitor: Suscriptor }
 >('users/suscribe', async ({ repository, visitor }) => {
   const suscriptor = await repository.suscribe(visitor);

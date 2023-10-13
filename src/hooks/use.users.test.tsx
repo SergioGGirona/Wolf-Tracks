@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { Provider, useDispatch } from 'react-redux';
 import { appStore } from '../components/store/store';
 import { UserLogin } from '../model/user';
+import { Suscriptor } from '../types/suscriptor';
 import { useUsers } from './use.users';
 
 jest.mock('../config.ts', () => ({
@@ -17,10 +18,12 @@ jest.mock('react-redux', () => ({
 
 describe('Given the hook useUsers', () => {
   function TestComponent() {
-    const { status, addUser, loginUser, loadEmployees } = useUsers();
+    const { status, addUser, loginUser, loadEmployees, suscribeVisitor } =
+      useUsers();
 
     const mockUser = {} as unknown as FormData;
     const mockUser2 = {} as unknown as UserLogin;
+    const mockUser3 = {} as unknown as Suscriptor;
 
     return (
       <>
@@ -32,6 +35,9 @@ describe('Given the hook useUsers', () => {
         </button>
         <button role="button" onClick={() => loadEmployees()}>
           3
+        </button>
+        <button role="button" onClick={() => suscribeVisitor(mockUser3)}>
+          4
         </button>
         <p>{status}</p>
       </>
@@ -61,6 +67,11 @@ describe('Given the hook useUsers', () => {
     test('Then, if we click 3, the state should be rendered', async () => {
       const buttons = screen.getAllByRole('button');
       await userEvent.click(buttons[2]);
+      expect(useDispatch()).toHaveBeenCalled();
+    });
+    test('Then, if we click 3, the state should be rendered', async () => {
+      const buttons = screen.getAllByRole('button');
+      await userEvent.click(buttons[3]);
       expect(useDispatch()).toHaveBeenCalled();
     });
   });

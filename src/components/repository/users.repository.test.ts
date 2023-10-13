@@ -1,4 +1,5 @@
 import { UserLogin } from '../../model/user.js';
+import { Suscriptor } from '../../types/suscriptor.js';
 import { UsersRepository } from './users.repository.js';
 
 describe('Given the class ApiUserRepository', () => {
@@ -33,6 +34,16 @@ describe('Given the class ApiUserRepository', () => {
       await repo.login(user2);
       expect(global.fetch).toHaveBeenCalled();
     });
+
+    test('Then, suscribe method should have been called', async () => {
+      const suscriptor: Suscriptor = { userName: 'Luffy', email: 'test' };
+      global.fetch = jest.fn().mockResolvedValueOnce({
+        ok: true,
+        json: jest.fn().mockResolvedValue({}),
+      });
+      await repo.suscribe(suscriptor);
+      expect(global.fetch).toHaveBeenCalled();
+    });
   });
 
   describe('When it is instantiated with errors', () => {
@@ -65,6 +76,16 @@ describe('Given the class ApiUserRepository', () => {
       });
 
       expect(errorRepo.login(data2)).rejects.toThrow();
+    });
+
+    test('Then, it should throw error in suscribe method', async () => {
+      const suscriptor: Suscriptor = { userName: 'Luffy', email: 'test' };
+
+      global.fetch = jest.fn().mockResolvedValueOnce({
+        ok: false,
+        json: jest.fn().mockResolvedValue({}),
+      });
+      expect(errorRepo.suscribe(suscriptor)).rejects.toThrow();
     });
   });
 });
