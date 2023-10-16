@@ -1,4 +1,4 @@
-import { SyntheticEvent, useEffect } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { useWolves } from '../../hooks/use.wolves';
 import Wolf from '../wolf/wolf';
 import styles from './wolves.module.scss';
@@ -14,6 +14,27 @@ export function Wolves() {
   const handleFilter = (ev: SyntheticEvent) => {
     const selectedTerritory = ev.currentTarget.textContent;
     filterTerritory(selectedTerritory!);
+  };
+
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const pageSize = 5;
+  const pageCounter = Math.ceil(wolvesToPublic.length / pageSize);
+  const paginatedData = wolvesToPublic.slice(
+    currentPage * pageSize,
+    (currentPage + 1) * pageSize
+  );
+
+  const handleNextPage = () => {
+    if (currentPage < pageCounter - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
   };
 
   return (
@@ -43,14 +64,14 @@ export function Wolves() {
       )}
       {loadState === 'loaded' && (
         <ul className={styles.wolvesList}>
-          {wolvesToPublic.map((item) => (
+          {paginatedData.map((item) => (
             <Wolf key={item.id} wolf={item}></Wolf>
           ))}
         </ul>
       )}
       <div className={styles.buttons}>
-        <button>{'<'}</button>
-        <button>{'>'}</button>
+        <button onClick={handlePreviousPage}>{'<'}</button>
+        <button onClick={handleNextPage}>{'>'}</button>
       </div>
     </div>
   );

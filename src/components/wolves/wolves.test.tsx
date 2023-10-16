@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import { useWolves } from '../../hooks/use.wolves';
@@ -12,6 +13,8 @@ jest.mock('../../hooks/use.wolves');
 jest.mock('../../config.ts', () => ({
   localUrl: '',
 }));
+const useStateSpy = jest.spyOn(React, 'useState');
+
 describe('Given the component Wolves', () => {
   const mockloadPartialWolves = jest.fn().mockImplementation(() => {});
   describe('When we render it', () => {
@@ -67,6 +70,24 @@ describe('Given the component Wolves', () => {
       const buttons = screen.getAllByRole('button');
       fireEvent.click(buttons[0]);
       expect(Wolf).toHaveBeenCalled();
+    });
+
+    test('Then, the functions handler pages should be called', () => {
+      render(
+        <MemoryRouter>
+          <Provider store={appStore}>
+            <Wolves></Wolves>
+          </Provider>
+        </MemoryRouter>
+      );
+
+      const buttonPrev = screen.getByText('<');
+      fireEvent.click(buttonPrev);
+
+      const buttonNext = screen.getByText('>');
+      fireEvent.click(buttonNext);
+
+      expect(useStateSpy).toHaveBeenCalled();
     });
   });
 });
