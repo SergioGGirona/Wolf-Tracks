@@ -14,6 +14,7 @@ jest.mock('../../hooks/use.wolves');
 jest.mock('../../config.ts', () => ({
   localUrl: '',
 }));
+
 const wolfMocked = {
   id: '01',
   nickname: 'Chopper',
@@ -35,80 +36,79 @@ const userMocked = {
   wolves: [wolfMocked],
 } as unknown as User;
 
-describe('Given the component UpdateWolf,', () => {
-  describe('When we instantiate it and its loaded with a logged user', () => {
+describe('Given the component Profile', () => {
+  const renderProfile = () => {
+    render(
+      <MemoryRouter>
+        <Provider store={appStore}>
+          <Profile></Profile>
+        </Provider>
+      </MemoryRouter>
+    );
+  };
+
+  beforeEach(() => {
+    (useUsers as jest.Mock).mockReturnValue({
+      users: [userMocked],
+      status: 'logged',
+    });
+  });
+
+  describe('When we render its loaded with a logged user', () => {
     beforeEach(() => {
-      (useUsers as jest.Mock).mockReturnValue({
-        users: [userMocked],
-        status: 'logged',
-      });
       (useWolves as jest.Mock).mockReturnValue({
         wolves: [wolfMocked],
         loadWolves: jest.fn().mockReturnValue(wolfMocked),
         loadState: 'loaded',
       });
-      render(
-        <MemoryRouter>
-          <Provider store={appStore}>
-            <Profile></Profile>
-          </Provider>
-        </MemoryRouter>
-      );
+
+      renderProfile();
     });
+
     test('Then, header should be rendered', () => {
       const header = screen.getByText(/perfil/);
       expect(header).toBeInTheDocument();
     });
 
-    test('Then, loadwolves shoul have been called', () => {
+    test('Then, loadWolves should have been called', () => {
       expect(useWolves().loadWolves).toHaveBeenCalled();
     });
   });
+
   describe('When keeps loading while we instantiate it with a logged user', () => {
     beforeEach(() => {
-      (useUsers as jest.Mock).mockReturnValue({
-        users: [userMocked],
-        status: 'logged',
+      (useWolves as jest.Mock).mockReturnValueOnce({
+        wolves: [wolfMocked],
+        loadWolves: jest.fn().mockReturnValue(wolfMocked),
+        loadState: 'loading',
       });
-      render(
-        <MemoryRouter>
-          <Provider store={appStore}>
-            <Profile></Profile>
-          </Provider>
-        </MemoryRouter>
-      );
+
+      renderProfile();
     });
-    (useWolves as jest.Mock).mockReturnValueOnce({
-      wolves: [wolfMocked],
-      loadWolves: jest.fn().mockReturnValue(wolfMocked),
-      loadState: 'loading',
-    });
-    test('Then, it should render the header', () => {
+
+    test('Then, header should be rendered', () => {
       const element = screen.getByText(/perfil/);
       expect(element).toBeInTheDocument();
     });
   });
 
-  describe('When we instantiate it and its there is no logged user', () => {
+  describe('When there is no logged user', () => {
     beforeEach(() => {
       (useUsers as jest.Mock).mockReturnValue({
         users: [userMocked],
         status: 'not logged',
       });
+
       (useWolves as jest.Mock).mockReturnValue({
         wolves: [wolfMocked],
         loadWolves: jest.fn().mockReturnValue(wolfMocked),
         loadState: 'loaded',
       });
-      render(
-        <MemoryRouter>
-          <Provider store={appStore}>
-            <Profile></Profile>
-          </Provider>
-        </MemoryRouter>
-      );
+
+      renderProfile();
     });
-    test('Then, error page should be rendered', () => {
+
+    test('Then, Error page should be rendered', () => {
       const errorPage = screen.getByText(/Has perdido el rastro/);
       expect(errorPage).toBeInTheDocument();
     });
