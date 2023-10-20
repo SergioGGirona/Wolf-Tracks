@@ -53,21 +53,24 @@ describe('Given the hook useUsers', () => {
       );
     });
 
-    const buttons = screen.getAllByRole('button');
     test('Then, if we click 1, the state should be rendered', async () => {
+      const buttons = screen.getAllByRole('button');
       await userEvent.click(buttons[0]);
       expect(useDispatch()).toHaveBeenCalled();
     });
 
     test('Then, if we click 2, the state should be rendered', async () => {
+      const buttons = screen.getAllByRole('button');
       await userEvent.click(buttons[1]);
       expect(useDispatch()).toHaveBeenCalled();
     });
     test('Then, if we click 3, the state should be rendered', async () => {
+      const buttons = screen.getAllByRole('button');
       await userEvent.click(buttons[2]);
       expect(useDispatch()).toHaveBeenCalled();
     });
     test('Then, if we click 4, the state should be rendered', async () => {
+      const buttons = screen.getAllByRole('button');
       await userEvent.click(buttons[3]);
       expect(useDispatch()).toHaveBeenCalled();
     });
