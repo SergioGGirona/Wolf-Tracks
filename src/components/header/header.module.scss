@@ -61,7 +61,7 @@ header {
           color: white;
           margin: 0 4em;
           text-decoration: none;
-          font-size: 2rem;
+          font-size: 1.6rem;
           border-bottom: white solid 0.5px;
           width: 15em;
           display: flex;
@@ -92,4 +92,17 @@ header {
   visibility: visible;
   text-decoration: none;
   color: white;
+}
+
+@media (min-width: 770px) {
+  header {
+    nav {
+      div {
+        ul {
+          width: 40vw;
+          height: 50vh;
+        }
+      }
+    }
+  }
 }

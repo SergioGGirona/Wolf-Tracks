@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { User } from '../model/user';
 import { Payload } from '../types/payload';
+import { resetUserState } from './users.actions'; // Importa la acción
 import { addThunk, loadThunk, loginThunk } from './users.thunks';
 
 export type UsersState = {
   users: User[];
-  userStatus: 'logged' | 'not logged' | 'error';
+  userStatus: 'logged' | 'not logged' | 'error' | 'pending';
   hasError: boolean | null;
   token: string;
   employees: User[];
@@ -40,7 +41,7 @@ const usersSlice = createSlice({
     });
 
     builder.addCase(loginThunk.pending, (state) => {
-      state.userStatus = 'not logged';
+      state.userStatus = 'pending';
       state.hasError = null;
     });
 
@@ -55,7 +56,7 @@ const usersSlice = createSlice({
     );
 
     builder.addCase(loginThunk.rejected, (state) => {
-      state.userStatus = 'not logged';
+      state.userStatus = 'error';
       state.hasError = true;
     });
 
@@ -73,6 +74,10 @@ const usersSlice = createSlice({
 
     builder.addCase(loadThunk.rejected, (state) => {
       state.hasError = true;
+    });
+
+    builder.addCase(resetUserState, () => {
+      return initialState;
     });
   },
 });

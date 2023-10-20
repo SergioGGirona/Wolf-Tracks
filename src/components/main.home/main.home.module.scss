@@ -13,6 +13,8 @@ $primary: #0d312a;
   }
   img {
     display: none;
+    width: 100vw;
+    object-fit: cover;
   }
   div {
     position: absolute;
@@ -42,7 +44,7 @@ $primary: #0d312a;
   }
 }
 
-@media (min-width: 50rem) {
+@media (min-width: 770px) {
   .main {
     video {
       display: none;

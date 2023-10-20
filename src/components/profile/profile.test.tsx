@@ -36,11 +36,12 @@ const userMocked = {
 } as unknown as User;
 
 describe('Given the component UpdateWolf,', () => {
-  (useUsers as jest.Mock).mockReturnValue({
-    users: [userMocked],
-  });
-  describe('When we instantiate it and its loaded', () => {
+  describe('When we instantiate it and its loaded with a logged user', () => {
     beforeEach(() => {
+      (useUsers as jest.Mock).mockReturnValue({
+        users: [userMocked],
+        status: 'logged',
+      });
       (useWolves as jest.Mock).mockReturnValue({
         wolves: [wolfMocked],
         loadWolves: jest.fn().mockReturnValue(wolfMocked),
@@ -63,8 +64,12 @@ describe('Given the component UpdateWolf,', () => {
       expect(useWolves().loadWolves).toHaveBeenCalled();
     });
   });
-  describe('When keeps loading while we instantiate it', () => {
+  describe('When keeps loading while we instantiate it with a logged user', () => {
     beforeEach(() => {
+      (useUsers as jest.Mock).mockReturnValue({
+        users: [userMocked],
+        status: 'logged',
+      });
       render(
         <MemoryRouter>
           <Provider store={appStore}>
@@ -80,6 +85,31 @@ describe('Given the component UpdateWolf,', () => {
     });
     test('Then, it should render the header', () => {
       const element = screen.getByText(/perfil/);
+      expect(element).toBeInTheDocument();
+    });
+  });
+
+  describe('When we instantiate it and its there is no logged user', () => {
+    beforeEach(() => {
+      (useUsers as jest.Mock).mockReturnValue({
+        users: [userMocked],
+        status: 'not logged',
+      });
+      (useWolves as jest.Mock).mockReturnValue({
+        wolves: [wolfMocked],
+        loadWolves: jest.fn().mockReturnValue(wolfMocked),
+        loadState: 'loaded',
+      });
+      render(
+        <MemoryRouter>
+          <Provider store={appStore}>
+            <Profile></Profile>
+          </Provider>
+        </MemoryRouter>
+      );
+    });
+    test('Then, error page should be rendered', () => {
+      const element = screen.getByText(/Has perdido el rastro/);
       expect(element).toBeInTheDocument();
     });
   });

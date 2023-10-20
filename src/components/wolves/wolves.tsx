@@ -26,14 +26,18 @@ export function Wolves() {
   );
 
   const handleNextPage = () => {
+    const startPoint = document.getElementById('filterButtons') as HTMLElement;
     if (currentPage < pageCounter - 1) {
       setCurrentPage(currentPage + 1);
+      startPoint.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
   const handlePreviousPage = () => {
+    const startPoint = document.getElementById('filterButtons') as HTMLElement;
+
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1);
+      startPoint.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -43,7 +47,7 @@ export function Wolves() {
 
       <div className={styles.filters}>
         <label>Elije un territorio para filtrar:</label>
-        <div>
+        <div id="filterButtons">
           <span onClick={handleFilter} role="button">
             Asturias
           </span>
@@ -62,6 +66,12 @@ export function Wolves() {
           alt="Esperando a que los lobos carguen"
         />
       )}
+      {loadState === 'error' && (
+        <>
+          <p className={styles.error}>Ups, algo ha ido mal.</p>
+          <p>Recarga la página</p>
+        </>
+      )}
       {loadState === 'loaded' && (
         <ul className={styles.wolvesList}>
           {paginatedData.map((item) => (
@@ -70,8 +80,16 @@ export function Wolves() {
         </ul>
       )}
       <div className={styles.buttons}>
-        <button onClick={handlePreviousPage}>{'<'}</button>
-        <button onClick={handleNextPage}>{'>'}</button>
+        {currentPage > 0 && (
+          <button role="button" onClick={handlePreviousPage}>
+            {'<'}
+          </button>
+        )}
+        {paginatedData.length > 4 && (
+          <button role="button" onClick={handleNextPage}>
+            {'>'}
+          </button>
+        )}
       </div>
     </div>
   );

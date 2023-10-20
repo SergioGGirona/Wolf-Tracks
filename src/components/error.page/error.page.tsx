@@ -5,10 +5,7 @@ function ErrorPage() {
     <div className={styles.errorPage}>
       <video autoPlay loop muted src="../../../anim_lobo_aullando.mp4"></video>
       <h2>¿Has perdido el rastro?</h2>
-      <p>
-        Vuelve a la manada y sigue aprendiendo cómo puedes ayudarnos a defender
-        al lobo ibérico.
-      </p>
+      <p>Vuelve a la manada y sigue ayudándonos a defender al lobo ibérico.</p>
       <Link className={styles.link} to={'/'}>
         Vuelve a home
       </Link>
