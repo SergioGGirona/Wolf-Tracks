@@ -37,22 +37,22 @@ describe('Given the hook useWolves', () => {
     return (
       <>
         <button role="button" onClick={() => loadWolves()}>
-          1
+          A
         </button>
         <button role="button" onClick={() => eraseWolf(mockWolf)}>
-          2
+          B
         </button>
         <button role="button" onClick={() => addWolf(mockNewWolf)}>
-          3
+          C
         </button>
         <button role="button" onClick={() => updateWolf(mockWolf, mockWolf.id)}>
-          4
+          D
         </button>
         <button role="button" onClick={() => loadPartialWolves()}>
-          5
+          E
         </button>
         <button role="button" onClick={() => filterTerritory('Asturias')}>
-          6
+          F
         </button>
         <span>{loadState}</span>
       </>
@@ -68,49 +68,45 @@ describe('Given the hook useWolves', () => {
       );
     });
 
-    test('Then, if we click button 1, loadWolves should have been called', async () => {
-      const buttons = screen.getAllByRole('button');
+    test('Then, when we push button A, loadWolves should have been called', async () => {
+      const hookButtons = screen.getAllByRole('button');
 
-      await userEvent.click(buttons[0]);
-
-      expect(useDispatch()).toHaveBeenCalled();
-    });
-
-    test('Then, if we click button 2, eraseWolf should have been called', async () => {
-      const buttons = screen.getAllByRole('button');
-
-      await userEvent.click(buttons[1]);
+      await userEvent.click(hookButtons[0]);
 
       expect(useDispatch()).toHaveBeenCalled();
     });
 
-    test('Then, if we click button 3, addWolf should have been called', async () => {
-      const buttons = screen.getAllByRole('button');
-
-      await userEvent.click(buttons[2]);
-
-      expect(useDispatch()).toHaveBeenCalled();
-    });
-
-    test('Then, if we click button 4, update should have been called', async () => {
-      const buttons = screen.getAllByRole('button');
-
-      await userEvent.click(buttons[3]);
+    test('Then, when we push button B, eraseWolf should have been called', async () => {
+      const hookButtons = screen.getAllByRole('button');
+      await userEvent.click(hookButtons[1]);
 
       expect(useDispatch()).toHaveBeenCalled();
     });
 
-    test('Then, if we click button 5, loadPartialWolf should have been called', async () => {
-      const buttons = screen.getAllByRole('button');
-
-      await userEvent.click(buttons[4]);
+    test('Then, when we push button C, addWolf should have been called', async () => {
+      const hookButtons = screen.getAllByRole('button');
+      await userEvent.click(hookButtons[2]);
 
       expect(useDispatch()).toHaveBeenCalled();
     });
-    test('Then, if we click button 6, filterTerritory should have been called', async () => {
-      const buttons = screen.getAllByRole('button');
 
-      await userEvent.click(buttons[5]);
+    test('Then, when we push button D, update should have been called', async () => {
+      const hookButtons = screen.getAllByRole('button');
+      await userEvent.click(hookButtons[3]);
+
+      expect(useDispatch()).toHaveBeenCalled();
+    });
+
+    test('Then, when we push button E, loadPartialWolf should have been called', async () => {
+      const hookButtons = screen.getAllByRole('button');
+      await userEvent.click(hookButtons[4]);
+
+      expect(useDispatch()).toHaveBeenCalled();
+    });
+
+    test('Then, when we push button F, filterTerritory should have been called', async () => {
+      const hookButtons = screen.getAllByRole('button');
+      await userEvent.click(hookButtons[5]);
 
       expect(useDispatch()).toHaveBeenCalled();
     });

@@ -3,17 +3,21 @@ import { Link } from 'react-router-dom';
 import { useUsers } from '../../hooks/use.users';
 import { useWolves } from '../../hooks/use.wolves';
 import { Wolf } from '../../model/wolf';
+import ErrorPage from '../error.page/error.page';
 import { WolfDetail } from '../wolf.detail/wolf.detail';
 import styles from './profile.module.scss';
 
 function Profile() {
   const { loadState, loadWolves, wolves } = useWolves();
-  const { users } = useUsers();
+  const { users, status } = useUsers();
 
   useEffect(() => {
     loadWolves();
   }, [loadWolves]);
 
+  if (status !== 'logged') {
+    return <ErrorPage />;
+  }
   const userWolves = wolves.filter(
     (wolf) => wolf.specialist && wolf.specialist.id === users[0].id
   ) as Wolf[];

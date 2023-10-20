@@ -7,6 +7,8 @@ Objetivo: Realiza una web single page aplication fullstack MERN y mobile first p
 
 ## Importante:
 
+- El back está deployeado en render, modo hobby, por lo que es posible que tarde en cargar. El spinner del lobo aullando indica que los lobos se están cargando.
+- La suscripción no envía newsletter real, sino un correo de agradecimiento.
 - El elemento de Login no debería estar disponible y a la vista de todos, pero por motivos de Deploy y para que cualquiera pueda probar la página, lo he dejado en el menú y a la vista.
 - Puedes registrarte, pero en tu perfil solo aparecen los lobos a los que tú como "empleado" estarías haciendo seguimiento (los únicos que podrías editar), por lo que si estás probando la web, te recomendaría que entraras con el usuario y la contraseña "Luffy" o el usuario y contraseña Nami, para que pruebes distintos perfiles.
 
