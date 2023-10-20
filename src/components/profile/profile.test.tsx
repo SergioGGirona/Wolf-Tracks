@@ -56,8 +56,8 @@ describe('Given the component UpdateWolf,', () => {
       );
     });
     test('Then, header should be rendered', () => {
-      const element = screen.getByText(/perfil/);
-      expect(element).toBeInTheDocument();
+      const header = screen.getByText(/perfil/);
+      expect(header).toBeInTheDocument();
     });
 
     test('Then, loadwolves shoul have been called', () => {
@@ -109,8 +109,8 @@ describe('Given the component UpdateWolf,', () => {
       );
     });
     test('Then, error page should be rendered', () => {
-      const element = screen.getByText(/Has perdido el rastro/);
-      expect(element).toBeInTheDocument();
+      const errorPage = screen.getByText(/Has perdido el rastro/);
+      expect(errorPage).toBeInTheDocument();
     });
   });
 });

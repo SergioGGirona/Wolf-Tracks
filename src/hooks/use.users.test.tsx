@@ -22,21 +22,21 @@ describe('Given the hook useUsers', () => {
       useUsers();
 
     const mockUser = {} as unknown as FormData;
-    const mockUser2 = {} as unknown as UserLogin;
-    const mockUser3 = {} as unknown as Suscriptor;
+    const mockLoginUser = {} as unknown as UserLogin;
+    const mockSuscriptor = {} as unknown as Suscriptor;
 
     return (
       <>
         <button role="button" onClick={() => addUser(mockUser)}>
           1
         </button>
-        <button role="button" onClick={() => loginUser(mockUser2)}>
+        <button role="button" onClick={() => loginUser(mockLoginUser)}>
           2
         </button>
         <button role="button" onClick={() => loadEmployees()}>
           3
         </button>
-        <button role="button" onClick={() => suscribeVisitor(mockUser3)}>
+        <button role="button" onClick={() => suscribeVisitor(mockSuscriptor)}>
           4
         </button>
         <p>{status}</p>
@@ -53,24 +53,21 @@ describe('Given the hook useUsers', () => {
       );
     });
 
+    const buttons = screen.getAllByRole('button');
     test('Then, if we click 1, the state should be rendered', async () => {
-      const buttons = screen.getAllByRole('button');
       await userEvent.click(buttons[0]);
       expect(useDispatch()).toHaveBeenCalled();
     });
 
     test('Then, if we click 2, the state should be rendered', async () => {
-      const buttons = screen.getAllByRole('button');
       await userEvent.click(buttons[1]);
       expect(useDispatch()).toHaveBeenCalled();
     });
     test('Then, if we click 3, the state should be rendered', async () => {
-      const buttons = screen.getAllByRole('button');
       await userEvent.click(buttons[2]);
       expect(useDispatch()).toHaveBeenCalled();
     });
-    test('Then, if we click 3, the state should be rendered', async () => {
-      const buttons = screen.getAllByRole('button');
+    test('Then, if we click 4, the state should be rendered', async () => {
       await userEvent.click(buttons[3]);
       expect(useDispatch()).toHaveBeenCalled();
     });
