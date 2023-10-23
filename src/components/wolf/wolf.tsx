@@ -1,7 +1,7 @@
 import { WolfToPublic } from '../../model/wolf';
 import styles from './wolf.module.scss';
 type Props = {
-  wolf: WolfToPublic;
+  readonly wolf: WolfToPublic;
 };
 function Card({ wolf }: Props) {
   return (

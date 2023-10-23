@@ -8,7 +8,7 @@ import { Wolf } from '../../model/wolf';
 import styles from './wolf.detail.module.scss';
 
 type Props = {
-  wolf: Wolf;
+  readonly wolf: Wolf;
 };
 export function WolfDetail({ wolf }: Props) {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
