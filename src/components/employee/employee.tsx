@@ -1,7 +1,7 @@
 import { User } from '../../model/user';
 import styles from './employee.module.scss';
 type Props = {
-  user: User;
+  readonly user: User;
 };
 export function Employee({ user }: Props) {
   return (

@@ -17,7 +17,7 @@ const Contact = lazy(() => import('../contact.form/contact.form'));
 const ErrorPage = lazy(() => import('../error.page/error.page'));
 
 type Props = {
-  options: RoutesOptions[];
+  readonly options: RoutesOptions[];
 };
 
 export function AppRouter({ options }: Props) {
