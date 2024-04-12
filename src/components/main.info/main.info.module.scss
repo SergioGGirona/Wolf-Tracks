@@ -1,22 +1,41 @@
 .mainInfo {
   display: flex;
   flex-direction: column;
-  padding-block-start: 2rem;
+  padding: 2rem 0;
   gap: 2rem;
   background-color: white;
   color: black;
+
   p {
     font-size: 1.5rem;
     padding-inline: 2rem;
 
-    strong {
-      display: block;
+    em {
+      font-style: normal;
+      font-weight: 900;
     }
   }
   img {
     width: 100vw;
     height: 30vh;
     object-fit: cover;
-    margin-block-end: 2rem;
+    margin-block-start: 1rem;
+  }
+  button {
+    background-color: #0d312a;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    margin: 2rem;
+    border: none;
+  }
+
+  button:hover {
+    background-color: rgba(35, 56, 52, 0.497);
+    cursor: pointer;
+  }
+
+  button:active {
+    transform: translate(4px, 4px);
   }
 }

@@ -32,7 +32,7 @@ function Contact() {
   };
 
   return (
-    <main className={styles.contact}>
+    <section className={styles.contact}>
       <a role="button" href={'/'}>
         Volver
       </a>
@@ -64,7 +64,7 @@ function Contact() {
           Enviar
         </button>
       </form>
-    </main>
+    </section>
   );
 }
 

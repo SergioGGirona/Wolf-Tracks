@@ -55,7 +55,7 @@ function Login() {
   };
 
   return (
-    <main className={styles.loginPage}>
+    <section className={styles.loginPage}>
       <form className={styles.loginForm} role="form" onSubmit={handleSubmit}>
         <h2>Welcome again!</h2>
         <div className={styles['loginContainer']}>
@@ -85,7 +85,7 @@ function Login() {
       <a role="button" href={'/register'}>
         Regístralo aquí
       </a>
-    </main>
+    </section>
   );
 }
 

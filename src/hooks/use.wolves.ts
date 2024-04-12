@@ -13,10 +13,10 @@ import {
   updateThunk,
 } from '../redux/wolves.thunks';
 
-export const urlBaseUsers = localUrl + '/wolves';
+export const urlBaseWolves = localUrl + '/wolves';
 
 export function useWolves() {
-  const repository = useMemo(() => new WolvesRepository(urlBaseUsers), []);
+  const repository = useMemo(() => new WolvesRepository(urlBaseWolves), []);
 
   const userState = useSelector((state: RootState) => state.usersState);
   const token = userState.token;

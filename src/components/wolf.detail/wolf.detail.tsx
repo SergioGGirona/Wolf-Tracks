@@ -74,7 +74,17 @@ export function WolfDetail({ wolf }: Props) {
             <span>{wolf.territory}</span>
           </div>
           <p>{wolf.comments}</p>
-          <p>Último rastro: {wolf.tracks}</p>
+          <div className={styles.tracks}>
+            <p>
+              Último rastro:{'   '}
+              <em>{wolf.tracks && wolf.tracks[wolf.tracks.length - 1]}</em>
+            </p>
+            <ul>
+              Anteriores
+              {wolf.tracks &&
+                wolf.tracks.map((track, index) => <li key={index}>{track}</li>)}
+            </ul>
+          </div>
 
           <iframe
             src={`https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d9459.90007598987!2d${
