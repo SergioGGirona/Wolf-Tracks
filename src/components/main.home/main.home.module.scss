@@ -16,10 +16,10 @@ $primary: #0d312a;
     width: 100vw;
     object-fit: cover;
   }
-  div {
+  .mainClaim {
     position: absolute;
     top: 4rem;
-    left: 0;
+    left: 2rem;
     right: 0;
     bottom: 0;
 
@@ -36,22 +36,41 @@ $primary: #0d312a;
       border-top: white 2px solid;
       border-bottom: white 2px solid;
       font-weight: 400;
+      width: 80%;
       em {
         font-style: normal;
-        display: block;
       }
     }
   }
 }
 
-@media (min-width: 770px) {
+@media (width> 770px) {
   .main {
+    align-items: flex-start;
+
     video {
       display: none;
     }
     img {
       display: flex;
       height: 80vh;
+    }
+    .mainClaim {
+      h2 {
+        text-shadow: 0 0 10px black;
+        text-align: left;
+        font-size: 5.2rem;
+        line-height: 1;
+        width: 18rem;
+        font-weight: 800;
+        margin-inline-start: 2rem;
+        em {
+          color: transparent;
+          -webkit-text-stroke: 2px #cecece;
+          font-style: normal;
+          display: block;
+        }
+      }
     }
   }
 }

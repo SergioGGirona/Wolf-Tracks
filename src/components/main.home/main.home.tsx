@@ -6,9 +6,9 @@ export function Home() {
 
       <img src="../../../fondo_wolftracks.png" />
 
-      <div>
+      <div className={styles.mainClaim}>
         <h2>
-          Huellas que <em>inspiran acción</em>
+          Huellas que <em>inspiran</em> acción
         </h2>
       </div>
     </div>

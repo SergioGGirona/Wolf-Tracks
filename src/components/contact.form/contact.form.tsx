@@ -1,5 +1,5 @@
 import { SyntheticEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useUsers } from '../../hooks/use.users';
 import styles from './contact.form.module.scss';
@@ -32,12 +32,12 @@ function Contact() {
   };
 
   return (
-    <main className={styles.contact}>
-      <a role="button" href={'/'}>
+    <section className={styles['contact']}>
+      <Link to={'/'} className={`${styles.buttonForm} ${styles.buttonBack}`}>
         Volver
-      </a>
+      </Link>
 
-      <form className={styles.contactForm} role="form" onSubmit={handleSubmit}>
+      <form className={styles.contactForm} onSubmit={handleSubmit} role="form">
         <h2>¡Suscríbete a nuestra newsletter!</h2>
         <p>
           Recibirás mensualmente, con la luna llena, noticias y curiosidades
@@ -64,7 +64,7 @@ function Contact() {
           Enviar
         </button>
       </form>
-    </main>
+    </section>
   );
 }
 
