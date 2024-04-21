@@ -7,6 +7,31 @@ $secondary: #daede6;
   margin: 3rem;
   gap: 1rem;
   height: 70vh;
+  .buttonForm {
+    border: 1px white solid;
+    width: 7rem;
+    background-color: #daede6;
+    padding: 0.5rem 2rem;
+    font-family: 'Philosopher', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 0.5s;
+    margin: 1rem 0;
+  }
+  .buttonForm:hover {
+    background-color: transparent;
+    color: white;
+  }
+  .buttonForm:active {
+    background-color: black;
+    transform: translate(5px, 5px);
+  }
+  .buttonBack {
+    color: white;
+    background-color: $primary;
+    width: 4rem;
+    text-align: center;
+  }
   .contactForm {
     display: flex;
     flex-direction: column;
@@ -40,25 +65,6 @@ $secondary: #daede6;
         font-size: 1.2rem;
         font-weight: 100;
       }
-    }
-    .buttonForm {
-      border: 1px white solid;
-      width: 7rem;
-      background-color: #daede6;
-      padding: 0.5rem 2rem;
-      font-family: 'Philosopher', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      transition: all 0.5s;
-      margin: 1rem 0;
-    }
-    .buttonForm:hover {
-      background-color: transparent;
-      color: white;
-    }
-    .buttonForm:active {
-      background-color: black;
-      transform: translate(5px, 5px);
     }
   }
   a {
